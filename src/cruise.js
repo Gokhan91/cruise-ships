@@ -4,8 +4,12 @@ class Ship {
         this.startingPort = startingPort
         this.noOfPassengers = noOfPassengers
     }
-}
+    setSail() {
+        this.startingPort = false;
+    }
 
+
+};
 module.exports = Ship;
 
 

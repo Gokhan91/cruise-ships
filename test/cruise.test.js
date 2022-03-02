@@ -17,4 +17,9 @@ describe('constructor', () => {
         let gurrada = new Ship('gurrada', 'girne', 5);
         expect(gurrada.noOfPassengers).toBe(5);
     });
+    it('can set sail', () => {
+        const gurrada = new Ship('gurrada', 'girne', 5);
+        gurrada.setSail();
+        expect(gurrada.startingPort).toBeFalsy();
+    });
 });
