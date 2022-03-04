@@ -1,4 +1,5 @@
-const Ship = require('../src/cruise.js');
+const { Ship, Port } = require('../src/cruise.js');
+
 
 //1 ship classı olacak
 //passenger ve starting portu olacak
@@ -6,20 +7,31 @@ const Ship = require('../src/cruise.js');
 
 describe('constructor', () => {
     it('returns an object', () => {
-        let gurrada = new Ship('gurrada', 'girne', 0);
+        let gurrada = new Ship('gurrada', 'girne', 'girne', 0);
         expect(gurrada).toBeInstanceOf(Object)
     });
     it('has a starting port', () => {
-        let gurrada = new Ship('gurrada', 'girne', 0);
-        expect(gurrada.startingPort).toBe('girne');
+        let gurrada = new Ship('gurrada', 'girne', 'girne', 0);
+        expect(gurrada.startingPt).toBe('girne');
     });
     it('has passengers', () => {
-        let gurrada = new Ship('gurrada', 'girne', 5);
+        let gurrada = new Ship('gurrada', 'girne', 'girne', 5);
         expect(gurrada.noOfPassengers).toBe(5);
     });
     it('can set sail', () => {
-        const gurrada = new Ship('gurrada', 'girne', 5);
+        let gurrada = new Ship('gurrada', 'girne', 'girne', 5);
         gurrada.setSail();
-        expect(gurrada.startingPort).toBeFalsy();
+        expect(gurrada.startingPt).not.toBe(true);
+    });
+});
+
+describe('constructor', () => {
+    it('returns an object', () => {
+        let girne = new Port('girne');
+        expect(girne).toBeInstanceOf(Object)
+    });
+    it('has a port name', () => {
+        let babaullo = new Port('Girne');
+        expect(babaullo.portName).toBe('Girne');
     });
 });
