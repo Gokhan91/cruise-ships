@@ -11,6 +11,9 @@ class Ship {
             return false
         }
     }
+    dock(portName) {
+        this.location = portName
+    }
 };
 
 

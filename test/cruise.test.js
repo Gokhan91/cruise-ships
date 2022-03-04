@@ -12,8 +12,9 @@ describe('constructor', () => {
         expect(gurrada).toBeInstanceOf(Object)
     });
     it('has a starting port', () => {
-        let gurrada = new Ship('gurrada', 'girne', 'girne', 0);
-        expect(gurrada.startingPt).toBe('girne');
+        let Limasol = new Port('Limasol')
+        let gurrada = new Ship('gurrada', Limasol, Limasol, 0);
+        expect(gurrada.startingPt).toBe(Limasol);
     });
     it('has passengers', () => {
         let gurrada = new Ship('gurrada', 'girne', 'girne', 5);
@@ -24,15 +25,22 @@ describe('constructor', () => {
         gurrada.setSail();
         expect(gurrada.startingPt).not.toBe(true);
     });
-});
-
-describe('constructor', () => {
-    it('returns an object', () => {
-        let girne = new Port('girne');
-        expect(girne).toBeInstanceOf(Object)
+    it('can dock to another port', () => {
+        let Limasol = new Port('Limasol')
+        let Magusa = new Port('Magusa')
+        let gurrada = new Ship('gurrada', Limasol, Limasol, 0);
+        gurrada.dock(Magusa)
+        expect(gurrada.location).toBe(Magusa);
     });
-    it('has a port name', () => {
-        let babaullo = new Port('Girne');
-        expect(babaullo.portName).toBe('Girne');
+
+    describe('constructor', () => {
+        it('returns an object', () => {
+            let girne = new Port('girne');
+            expect(girne).toBeInstanceOf(Object)
+        });
+        it('has a port name', () => {
+            let babaullo = new Port('Girne');
+            expect(babaullo.portName).toBe('Girne');
+        });
     });
 });
