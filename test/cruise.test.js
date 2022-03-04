@@ -1,4 +1,5 @@
-const { Ship, Port } = require('../src/cruise.js');
+const { Ship } = require('../src/cruise.js');
+const { Port } = require('../src/port.js');
 
 
 //1 ship classı olacak

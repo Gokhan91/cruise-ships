@@ -10,19 +10,8 @@ class Ship {
         if (this.startingPt != this.location) {
             return false
         }
-
     }
-    // dock(location)
-    //this.location = location
-};
-
-class Port {
-    constructor(portName) {
-        this.portName = portName;
-    };
 };
 
 
-module.exports = { Ship, Port };
-
-
+module.exports = { Ship };
