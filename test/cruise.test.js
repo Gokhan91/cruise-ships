@@ -80,6 +80,14 @@ describe('constructor', () => {
         Limasol.removeShip(beytambal);
         expect(Limasol.ships).toEqual([gurrada]);
     });
+
+    it('gets added to port on instantiation', () => {
+        const Limasol = new Port('Limasol');
+        const tour1 = new Itinerary([Limasol])
+        const gurrada = new Ship('gurrada', tour1, 0);
+        expect(Limasol.ships).toContain(gurrada);
+
+    });
 });
 describe('constructor', () => {
     it('returns an object', () => {

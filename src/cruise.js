@@ -1,10 +1,11 @@
 class Ship {
     constructor(shipName, itinerary, noOfPassengers) {
         this.shipName = shipName;
+        this.noOfPassengers = noOfPassengers
         this.itinerary = itinerary;
         this.currentpt = itinerary.ports[0];
-        this.noOfPassengers = noOfPassengers
-        this.previousPort = null
+        this.previousPort = null;
+        this.currentpt.addShip(this);
     }
     setSail() {
         const itinerary = this.itinerary;
@@ -20,7 +21,7 @@ class Ship {
         const itinerary = this.itinerary;
         const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
         this.currentpt = itinerary.ports[previousPortIndex + 1];
-    }
+    };
 };
 
 
