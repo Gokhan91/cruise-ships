@@ -1,6 +1,6 @@
 class Itinerary {
-    constructor(Port) {
-        this.Port = Port
+    constructor(ports) {
+        this.ports = ports
     }
 };
 

@@ -1,6 +1,6 @@
 class Port {
     constructor(portName) {
-        this.portName = portName
+        this.portName = portName;
     }
 };
 

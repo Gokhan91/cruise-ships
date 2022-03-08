@@ -8,53 +8,71 @@ const { Itinerary } = require('../src/itinerary.js');
 
 describe('constructor', () => {
     it('returns an object', () => {
-        let gurrada = new Ship('gurrada', 'girne', 'girne', 0);
+        const Limasol = new Port('Limasol');
+        const tour1 = new Itinerary([Limasol]);
+        const gurrada = new Ship('gurrada', tour1, 0);
         expect(gurrada).toBeInstanceOf(Object)
     });
     it('has a starting port', () => {
-        let Limasol = new Port('Limasol')
-        let gurrada = new Ship('gurrada', Limasol, 0);
+        const Limasol = new Port('Limasol');
+        const tour1 = new Itinerary([Limasol]);
+        const gurrada = new Ship('gurrada', tour1, 0);
         expect(gurrada.currentpt).toBe(Limasol);
     });
     it('has passengers', () => {
-        let gurrada = new Ship('gurrada', 'girne', 5);
+        const Limasol = new Port('Limasol');
+        const tour1 = new Itinerary([Limasol]);
+        const gurrada = new Ship('gurrada', tour1, 5);
         expect(gurrada.noOfPassengers).toBe(5);
     });
     it('can set sail', () => {
-        let Limasol = new Port('Limasol')
-        let gurrada = new Ship('gurrada', Limasol, 5);
+        const Limasol = new Port('Limasol')
+        const Magusa = new Port('Magusa')
+        const tour1 = new Itinerary([Limasol, Magusa])
+        const gurrada = new Ship('gurrada', tour1, 5);
         gurrada.setSail();
         expect(gurrada.currentpt).not.toBe(true);
-        expect(gurrada.previousPort).toBe(Limasol)
+        expect(gurrada.previousPort).toEqual(Limasol)
     });
     it('can dock to another port', () => {
-        let Limasol = new Port('Limasol')
-        let Magusa = new Port('Magusa')
-        let gurrada = new Ship('gurrada', Limasol, 0);
-        gurrada.dock(Magusa)
+        const Limasol = new Port('Limasol')
+        const Magusa = new Port('Magusa')
+        const tour1 = new Itinerary([Limasol, Magusa])
+        const gurrada = new Ship('gurrada', tour1, 0);
+        gurrada.setSail();
+        gurrada.dock();
         expect(gurrada.currentpt).toBe(Magusa);
+    });
+    it('can not sail further than its itinerary', () => {
+        const Limasol = new Port('Limasol')
+        const Magusa = new Port('Magusa')
+        const tour1 = new Itinerary([Limasol, Magusa])
+        const gurrada = new Ship('gurrada', tour1, 0);
+        gurrada.setSail();
+        gurrada.dock();
+        expect(() => gurrada.setSail()).toThrowError('end of itinerary reached');
     });
 });
 
 describe('constructor', () => {
     it('returns an object', () => {
-        let girne = new Port('girne');
-        expect(girne).toBeInstanceOf(Object)
+        const Limasol = new Port('Limasol');
+        expect(Limasol).toBeInstanceOf(Object)
     });
     it('has a port name', () => {
-        let babaullo = new Port('Girne');
-        expect(babaullo.portName).toBe('Girne');
+        const Limasol = new Port('Limasol');
+        expect(Limasol.portName).toBe('Limasol');
     });
 });
 describe('constructor', () => {
     it('returns an object', () => {
-        let tour1 = new Itinerary('tour1');
+        const tour1 = new Itinerary('tour1');
         expect(tour1).toBeInstanceOf(Object)
     });
     it('can have ports', () => {
-        let Limasol = new Port('Limasol')
-        let Magusa = new Port('Magusa')
-        let tour1 = new Itinerary([Limasol, Magusa]);
-        expect(tour1.Port).toEqual([Limasol, Magusa])
+        const Limasol = new Port('Limasol')
+        const Magusa = new Port('Magusa')
+        const tour1 = new Itinerary([Limasol, Magusa]);
+        expect(tour1.ports).toEqual([Limasol, Magusa])
     });
 });
