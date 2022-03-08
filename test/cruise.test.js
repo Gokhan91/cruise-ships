@@ -63,6 +63,23 @@ describe('constructor', () => {
         const Limasol = new Port('Limasol');
         expect(Limasol.portName).toBe('Limasol');
     });
+    it('can add ship', () => {
+        const Limasol = new Port('Limasol');
+        const tour1 = new Itinerary([Limasol])
+        const gurrada = new Ship('gurrada', tour1, 0);
+        Limasol.addShip(gurrada);
+        expect(Limasol.ships).toContain(gurrada);
+    });
+    it('can remove ship', () => {
+        const Limasol = new Port('Limasol');
+        const tour1 = new Itinerary([Limasol])
+        const gurrada = new Ship('gurrada', tour1, 0);
+        const beytambal = new Ship('beytambal', tour1, 0);
+        Limasol.addShip(gurrada);
+        Limasol.addShip(beytambal);
+        Limasol.removeShip(beytambal);
+        expect(Limasol.ships).toEqual([gurrada]);
+    });
 });
 describe('constructor', () => {
     it('returns an object', () => {
