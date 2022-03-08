@@ -1,18 +1,18 @@
 class Ship {
-    constructor(shipName, startingPt, location, noOfPassengers) {
+    constructor(shipName, currentpt, noOfPassengers) {
         this.shipName = shipName
-        this.startingPt = startingPt
-        this.location = location
+        this.currentpt = currentpt
         this.noOfPassengers = noOfPassengers
-
+        this.previousPort = null
     }
     setSail() {
-        if (this.startingPt != this.location) {
+        if (this.currentpt != this.currentpt) {
             return false
         }
+        this.previousPort = this.currentpt
     }
     dock(portName) {
-        this.location = portName
+        this.currentpt = portName
     }
 };
 
