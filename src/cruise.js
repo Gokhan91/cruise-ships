@@ -15,6 +15,7 @@ class Ship {
         }
         this.previousPort = this.currentpt;
         this.currenpt = null;
+        this.previousPort.removeShip(this);
     };
 
     dock() {

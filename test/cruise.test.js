@@ -34,7 +34,8 @@ describe('constructor', () => {
         let gurrada = new Ship('gurrada', tour1, 5);
         gurrada.setSail();
         expect(gurrada.currentpt).not.toBe(true);
-        expect(gurrada.previousPort).toEqual(Limasol)
+        expect(Limasol.ships).not.toContain(gurrada);
+
     });
 });
 describe('constructor', () => {
