@@ -2,6 +2,7 @@ const { Ship } = require('../src/cruise.js');
 const { Port } = require('../src/port.js');
 const { Itinerary } = require('../src/itinerary.js');
 
+// bu bir ubuntu testidir
 //1 ship classı olacak
 //passenger ve starting portu olacak
 // shipe passenger ekleyebileceyik
