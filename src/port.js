@@ -1,5 +1,3 @@
-const { arrayToCSVString } = require("../../javascript-basics/src/arrays");
-
 class Port {
     constructor(portName) {
         this.portName = portName;
